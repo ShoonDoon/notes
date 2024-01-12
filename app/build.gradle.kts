@@ -11,6 +11,13 @@ android {
     namespace = "com.example.notes"
     compileSdk = 33
 
+
+
+    buildFeatures{
+        viewBinding = true
+        dataBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.notes"
         minSdk = 26
