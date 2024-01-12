@@ -1,4 +1,4 @@
-package com.example.androidkotlinappnote.model
+package com.example.notes
 
 import android.os.Parcelable
 import androidx.room.Entity

@@ -1,6 +1,5 @@
 package com.example.notes
 
-import com.example.androidkotlinappnote.model.ModelNote
 import com.example.notes.db.DatabaseBuild
 
 class  Repository(private val db: DatabaseBuild) {
