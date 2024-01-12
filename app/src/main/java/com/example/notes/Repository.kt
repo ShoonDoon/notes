@@ -2,7 +2,7 @@ package com.example.notes
 
 import com.example.notes.db.DatabaseBuild
 
-class  Repository(private val db: DatabaseBuild) {
+class Repository(private val db: DatabaseBuild) {
 
 
     suspend fun insertNote(note: ModelNote) = db.getNoteDao().insertNote(note)
