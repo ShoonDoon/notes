@@ -41,7 +41,6 @@
             android:hint="Добавте запис"
             android:gravity="top"
             android:padding="12dp"
-
             android:background="@drawable/custom_input3"
             android:textColor="@color/violet"
             android:textSize="17sp"

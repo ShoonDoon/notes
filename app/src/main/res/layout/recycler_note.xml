@@ -23,6 +23,7 @@
                 android:layout_height="60dp"
                 android:adjustViewBounds="true"
                 android:layout_marginTop="-8dp"
+                android:src="@drawable/stamp_note"
                 android:layout_marginLeft="-8dp"
                                                 />
 
