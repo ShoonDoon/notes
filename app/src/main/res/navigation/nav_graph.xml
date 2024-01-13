@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.notes.MainFragment"
+        android:name="com.example.notes.fragments.MainFragment"
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_updateFragment"
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
-        android:name="com.example.notes.UpdateFragment"
+        android:name="com.example.notes.fragments.UpdateFragment"
         android:label="UpdateFragment" >
         <action
             android:id="@+id/action_updateFragment_to_mainFragment"
@@ -30,13 +30,13 @@
             app:popExitAnim="@anim/fade_out" />
         <argument
             android:name="modelnote"
-            app:argType="com.example.notes.ModelNote"
+            app:argType="com.example.notes.db.ModelNote"
             app:nullable="true" />
 
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.notes.AddFragment"
+        android:name="com.example.notes.fragments.AddFragment"
         android:label="AddFragment" >
         <action
             android:id="@+id/action_addFragment_to_mainFragment"

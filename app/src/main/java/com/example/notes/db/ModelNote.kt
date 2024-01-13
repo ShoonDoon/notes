@@ -1,4 +1,4 @@
-package com.example.notes
+package com.example.notes.db
 
 import android.os.Parcelable
 import androidx.room.Entity

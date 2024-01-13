@@ -1,4 +1,4 @@
-package com.example.notes
+package com.example.notes.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,9 +13,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.notes.Adapter
+import com.example.notes.MainActivity
+import com.example.notes.db.ModelNote
+import com.example.notes.R
 import com.example.notes.databinding.FragmentMainBinding
 
 class MainFragment : Fragment(R.layout.fragment_main) , SearchView.OnQueryTextListener,

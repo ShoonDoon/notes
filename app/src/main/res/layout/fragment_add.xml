@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:background="@color/violet"
         android:orientation="vertical"
-        tools:context=".AddFragment"
+        tools:context=".fragments.AddFragment"
         android:padding="12dp">
 
 

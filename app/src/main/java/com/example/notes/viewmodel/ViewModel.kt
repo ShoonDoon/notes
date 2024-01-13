@@ -3,7 +3,7 @@ package com.example.notes.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.notes.ModelNote
+import com.example.notes.db.ModelNote
 import com.example.notes.Repository
 import kotlinx.coroutines.launch
 

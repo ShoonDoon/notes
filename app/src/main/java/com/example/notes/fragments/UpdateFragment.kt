@@ -1,8 +1,7 @@
-package com.example.notes
+package com.example.notes.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.view.Display.Mode
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
@@ -15,9 +14,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModel
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.notes.MainActivity
+import com.example.notes.db.ModelNote
+import com.example.notes.R
 import com.example.notes.databinding.FragmentUpdateBinding
 
 
@@ -72,7 +73,7 @@ class UpdateFragment :  Fragment(R.layout.fragment_update), MenuProvider {
             if (noteTitle.isNotEmpty()){
                 val note = ModelNote(currentNote.id , noteTitle, noteDesc)
                 notesViewModel.updateNote(note)
-                view.findNavController().popBackStack(R.id.mainFragment , false)
+                view.findNavController().popBackStack(R.id.mainFragment, false)
             } else {
                 Toast.makeText(context, "Будь ласка введіть заголовок" , Toast.LENGTH_SHORT )
             }

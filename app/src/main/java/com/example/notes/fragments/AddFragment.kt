@@ -1,4 +1,4 @@
-package com.example.notes
+package com.example.notes.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,6 +14,9 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.findNavController
+import com.example.notes.MainActivity
+import com.example.notes.db.ModelNote
+import com.example.notes.R
 import com.example.notes.databinding.FragmentAddBinding
 import com.example.notes.viewmodel.ViewModel
 
@@ -76,7 +79,7 @@ class AddFragment : Fragment(R.layout.fragment_add), MenuProvider {
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menu.clear()
-        menuInflater.inflate(R.menu.menu_add_note , menu)
+        menuInflater.inflate(R.menu.menu_add_note, menu)
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {

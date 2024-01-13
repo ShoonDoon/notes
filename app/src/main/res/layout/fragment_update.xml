@@ -10,7 +10,7 @@
         android:orientation="vertical"
         android:background="@color/violet"
         android:padding="12dp"
-        tools:context=".UpdateFragment">
+        tools:context=".fragments.UpdateFragment">
 
 
 
