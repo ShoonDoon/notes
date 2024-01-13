@@ -24,7 +24,7 @@
             android:textColor="@color/violet"
             android:textCursorDrawable="@drawable/custom_cursor"
             android:background="@drawable/custom_input2"
-            android:hint="Добавте заголовок"
+            android:hint="@string/add_title_text"
 
             android:maxLines="1"
             android:padding="12dp"
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:paddingTop="-25dp"
-            android:hint="Добавте запис"
+            android:hint="@string/add_note_text"
             android:gravity="top"
             android:padding="12dp"
             android:background="@drawable/custom_input3"

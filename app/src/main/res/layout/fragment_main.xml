@@ -43,7 +43,7 @@
             android:id="@+id/emptyNotesText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Добавте записи"
+            android:text="@string/add_notes_text"
             android:textColor="@color/red"
             android:textSize="18sp"
 
