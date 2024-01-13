@@ -12,7 +12,4 @@ class Repository(private val db: DatabaseBuild) {
     suspend fun updateNote(note: ModelNote) = db.getNoteDao().updateNote(note)
 
     fun getAllNotes() = db.getNoteDao().getAllNotes()
-
-
-
 }

@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-
+        android:background="@color/violet"
         android:padding="12dp"
         tools:context=".UpdateFragment">
 
@@ -20,22 +20,22 @@
             android:layout_height="60dp"
             android:hint="Добавте заголовок"
             android:padding="12dp"
-
-
+            android:textColor="@color/violet"
+            android:textCursorDrawable="@drawable/custom_cursor"
+            android:background="@drawable/custom_input2"
             android:textSize="20sp"
-
             android:layout_marginTop="16dp"
             android:maxLines="1" />
 
         <EditText
             android:id="@+id/editNoteDesc"
             android:layout_width="match_parent"
-
+            android:textCursorDrawable="@drawable/custom_cursor"
             android:hint="Добавте запис"
-
+            android:textColor="@color/violet"
             android:gravity="top"
             android:padding="12dp"
-
+            android:background="@drawable/custom_input3"
             android:layout_height="400dp"
             android:textSize="18sp"
 
@@ -49,9 +49,9 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:clickable="true"
-
+            android:backgroundTint="@color/violet"
             android:tintMode="@color/white"
-
+            android:src="@drawable/icon_check"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:contentDescription="editFab" />

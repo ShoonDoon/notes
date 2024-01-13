@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="28dp"
-
+            android:backgroundTint="@color/green"
             android:clickable="true"
             android:contentDescription="image"
             android:tintMode="@color/white"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Добавте записи"
-
+            android:textColor="@color/red"
             android:textSize="18sp"
 
             android:textStyle="bold"

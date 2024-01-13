@@ -9,7 +9,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:background="@color/violet"
         android:orientation="vertical"
         tools:context=".AddFragment"
         android:padding="12dp">
@@ -21,8 +21,9 @@
             android:layout_height="60dp"
             android:layout_marginTop="16dp"
 
-
-
+            android:textColor="@color/violet"
+            android:textCursorDrawable="@drawable/custom_cursor"
+            android:background="@drawable/custom_input2"
             android:hint="Добавте заголовок"
 
             android:maxLines="1"
@@ -41,9 +42,10 @@
             android:gravity="top"
             android:padding="12dp"
 
-
+            android:background="@drawable/custom_input3"
+            android:textColor="@color/violet"
             android:textSize="17sp"
-
+            android:textCursorDrawable="@drawable/custom_cursor"
             android:layout_below="@id/addNoteTitle"
             android:layout_marginTop="0dp" />
 

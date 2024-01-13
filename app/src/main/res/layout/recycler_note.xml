@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-
+            android:background="@drawable/pink_border"
             android:padding="0dp">
 
             <ImageView
@@ -31,7 +31,9 @@
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:layout_marginTop="-30dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:src="@drawable/stamp_note"
+                >
 
 
 
@@ -40,9 +42,9 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/noteTitle"
                     android:layout_weight="0"
-
+                    android:textColor="@color/red"
                     android:text="Note Title"
-
+                    android:textCursorDrawable="@drawable/custom_cursor"
                     android:textStyle="bold"
                     android:layout_marginBottom="-10dp"
                     android:textSize="25sp"/>
@@ -55,7 +57,8 @@
                     android:layout_weight="0"
                     android:maxHeight="170dp"
                     android:text="Description"
-
+                    android:textColor="@color/red"
+                    android:textCursorDrawable="@drawable/custom_cursor"
                     android:textSize="15sp" />
 
             </LinearLayout>

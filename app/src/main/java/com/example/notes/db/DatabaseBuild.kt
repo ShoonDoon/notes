@@ -4,7 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.androidkotlinappnote.model.ModelNote
+import com.example.notes.ModelNote
+
 
 @Database(entities = [ModelNote::class], version = 1, exportSchema = false)
 abstract class DatabaseBuild: RoomDatabase(){
