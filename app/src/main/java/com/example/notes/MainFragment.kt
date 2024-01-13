@@ -3,57 +3,118 @@ package com.example.notes
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.ViewModel
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.notes.databinding.FragmentMainBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class MainFragment : Fragment(R.layout.fragment_main) , SearchView.OnQueryTextListener,
+    MenuProvider {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MainFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class MainFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var homeBinding: FragmentMainBinding? = null
+    private val binding get() = homeBinding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+    private lateinit var notesViewModel : com.example.notes.viewmodel.ViewModel
+    private lateinit var noteAdapter: Adapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+
+        homeBinding = FragmentMainBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MainFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MainFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        val navigationBarColor = ContextCompat.getColor(requireContext(), R.color.green)
+
+        requireActivity().window.navigationBarColor = navigationBarColor
+
+        val statusBarColor  = ContextCompat.getColor(requireContext(), R.color.green)
+
+        (activity as? MainActivity)?.updateActionBarColor(R.color.green)
+
+        requireActivity().window.statusBarColor  = statusBarColor
+
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+        notesViewModel = (activity as MainActivity).viewmodel
+        setupHomeRecycleView()
+
+        binding.addNoteFab.setOnClickListener{
+            it.findNavController().navigate(R.id.action_mainFragment_to_addFragment)
+        }
     }
+
+    private fun updateUI(note: List<ModelNote>?){
+        if(note != null){
+            if (note.isNotEmpty()) {
+                binding.emptyNotesText.visibility = View.GONE
+                binding.homeRecyclerView.visibility = View.VISIBLE
+            } else {
+                binding.emptyNotesText.visibility = View.VISIBLE
+                binding.homeRecyclerView.visibility = View.GONE
+            }
+        }
+    }
+
+
+    private fun setupHomeRecycleView() {
+        noteAdapter = Adapter()
+        binding.homeRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext()) // Use vertical orientation
+            setHasFixedSize(true)
+            adapter = noteAdapter
+        }
+        activity?.let {
+            notesViewModel.getAllNotes().observe(viewLifecycleOwner) { note ->
+                noteAdapter.differ.submitList(note)
+                updateUI(note)
+            }
+        }
+    }
+
+
+
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return  false
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+
+        return true
+    }
+
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menu.clear()
+        menuInflater.inflate(R.menu.home_menu, menu)
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        homeBinding = null
+    }
+
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        return false
+    }
+
 }

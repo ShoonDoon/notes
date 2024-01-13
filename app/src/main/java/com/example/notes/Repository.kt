@@ -13,4 +13,6 @@ class Repository(private val db: DatabaseBuild) {
 
     fun getAllNotes() = db.getNoteDao().getAllNotes()
 
+
+
 }
