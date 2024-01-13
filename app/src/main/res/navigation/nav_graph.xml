@@ -10,10 +10,14 @@
         android:label="MainFragment" >
         <action
             android:id="@+id/action_mainFragment_to_updateFragment"
-            app:destination="@id/updateFragment" />
+            app:destination="@id/updateFragment"
+            app:enterAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_in" />
         <action
             android:id="@+id/action_mainFragment_to_addFragment"
-            app:destination="@id/addFragment" />
+            app:destination="@id/addFragment"
+            app:enterAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
@@ -21,7 +25,9 @@
         android:label="UpdateFragment" >
         <action
             android:id="@+id/action_updateFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/fade_out" />
         <argument
             android:name="modelnote"
             app:argType="com.example.notes.ModelNote"
@@ -34,6 +40,8 @@
         android:label="AddFragment" >
         <action
             android:id="@+id/action_addFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
 </navigation>
